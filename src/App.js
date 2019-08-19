@@ -11,16 +11,20 @@ class App extends React.Component {
 
     this.state = {
       points:[
-        {name: 'point1'},
-        {name: 'point2'}
       ]
     }
+  }
+
+  selectResult = (feature) => {
+    this.setState((oldState) => {
+      return {points: oldState.points.put(feature)}
+    })
   }
 
   render(){
     return (
       <div id="container">
-        <SearchBox />
+        <SearchBox  selectResult={this.selectResult}/>
         <PointsList points={this.state.points} />
         <div id="mapContainer">
           <Map />

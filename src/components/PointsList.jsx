@@ -7,7 +7,7 @@ class PointsList extends React.Component {
     return (
       <div>
         {
-          this.props.points.map( point => { return <Point point={point}/> } )
+          this.props.points.map( (point, key) => { return <Point key={key} point={point}/> } )
         }
       </div>
     );
